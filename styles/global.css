@@ -1,0 +1,62 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Rubik', sans-serif;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 1.2rem;
+	font-weight: 400;
+	margin-bottom: 15px;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 20px;
+	line-height: 1.5;
+}
+
+br {
+	display: block;
+	content: "";
+	margin-top: 20px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 1px solid #171a23;
+	background-color: #171a23;
+	color: #fff;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+}
