@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function File({ name, ext, path, _spacing }) {
+	const [spacing, setSpacing] = useState('');
+	const [icon, setIcon] = useState('');
+
 	const icons = {
 		folder: 'fa fa-folder',
 		file: 'fa fa-file',
@@ -10,13 +13,18 @@ function File({ name, ext, path, _spacing }) {
 		css: 'fa-brands fa-css3-alt',
 	};
 
-	let spacing = '';
-	for (let i = 0; i < _spacing; i++) {
-		spacing += '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0';
-	}
+	useEffect(() => {
+		let spacing = '';
+		for (let i = 0; i < _spacing; i++) {
+			spacing += '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0';
+		}
 
-	if (!ext) ext = name.split('.').pop();
-	const icon = icons[ext] || 'fa fa-file';
+		if (!ext) ext = name.split('.').pop();
+		const icon = icons[ext] || 'fa fa-file';
+
+		setSpacing(spacing);
+		setIcon(icon);
+	}, [_spacing, ext, name, path]);
 
 	const handleClick = () => {
 		if (!path) return;

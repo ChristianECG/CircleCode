@@ -16,10 +16,11 @@ function inicio() {
 		const auth = async () => {
 			if (user) window.location.href = '/playground';
 
-			const token = hasToken();
 			const code = hasCode();
+			if (code) await generateToken(code);
+
+			const token = hasToken();
 			if (token) setUser(await getUser());
-			else if (code) await generateToken(code);
 		};
 		auth();
 	}, [user]);

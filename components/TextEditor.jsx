@@ -14,21 +14,28 @@ function TextEditor() {
 
 	return (
 		<div className={style.text_editor}>
-			{sourceCode.split('\n').map((line, index) => {
-				const lineNumber = index + 1;
-				return (
-					<section key={lineNumber} className={style.line_container}>
-						<span className={style.line_number}>{lineNumber}</span>
-						<span className={style.line_content}>
-							<FormattedLine
-								line={line}
-								lang="Javascript"
+			{sourceCode.split
+				? sourceCode.split('\n').map((line, index) => {
+						const lineNumber = index + 1;
+						return (
+							<section
 								key={lineNumber}
-							/>
-						</span>
-					</section>
-				);
-			})}
+								className={style.line_container}
+							>
+								<span className={style.line_number}>
+									{lineNumber}
+								</span>
+								<span className={style.line_content}>
+									<FormattedLine
+										line={line}
+										lang="Javascript"
+										key={lineNumber}
+									/>
+								</span>
+							</section>
+						);
+				  }) // eslint-disable-line
+				: JSON.stringify(sourceCode, null, 4)}
 		</div>
 	);
 }

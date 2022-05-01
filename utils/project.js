@@ -16,9 +16,9 @@ const requestAProject = async () => {
 
 	if (!localStorage.getItem('project')) {
 		const project = await Swal.fire({
-			title: 'No project selected',
+			title: 'Select a project',
 			text: 'Please select a project first',
-			icon: 'warning',
+			icon: 'info',
 			input: 'select',
 			inputOptions: structuredRepositories,
 		});
@@ -54,6 +54,8 @@ const downloadProject = async () => {
 	await axios.get(
 		`/api/downloadProject?clone_url=${project.clone_url}&user=${user.login}&token=${token}`
 	);
+
+	window.dispatchEvent(new Event('project:downloaded'));
 };
 
 export { requestAProject, hasProject, downloadProject };

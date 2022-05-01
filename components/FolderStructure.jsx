@@ -4,6 +4,7 @@ import Folders from '../components/Folders';
 
 function folderStructure({ path }) {
 	const [files, setFiles] = useState([]);
+	const [update, forceUpdate] = useState(0);
 
 	useEffect(() => {
 		async function getFolderStructure(path) {
@@ -11,9 +12,14 @@ function folderStructure({ path }) {
 				`/api/folderStructure?path=${path}`
 			);
 			setFiles(foldersStructure.data);
+			console.log(files, '<folderStructure>');
 		}
 		if (path) getFolderStructure(path);
-	}, [path]);
+	}, [path, update]);
+
+	window.addEventListener('project:downloaded', () => {
+		forceUpdate(Date.now());
+	});
 
 	return <Folders _folders={files} _depth={0} />;
 }

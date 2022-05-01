@@ -3,7 +3,7 @@ const CONFIG = require('../env.config');
 
 // Redirect to github login
 const requestAuth = async () => {
-	window.location.href = `https://github.com/login/oauth/authorize?client_id=${CONFIG.default.GITHUB_CLIENT_ID}&scope=user&scope=repo`;
+	window.location.href = `https://github.com/login/oauth/authorize?client_id=${CONFIG.default.GITHUB_CLIENT_ID}&scope=user%20repo`;
 };
 
 // Verify if the URL has a code parameter
@@ -35,6 +35,7 @@ const getUser = async () => {
 	const res = await axios.get('https://api.github.com/user', {
 		headers: { Authorization: `token ${token}` },
 	});
+	console.log(res);
 	return res.data;
 };
 
