@@ -1,0 +1,23 @@
+.line_container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 3rem auto;
+	grid-template-rows: 1fr;
+	gap: 1rem;
+}
+
+.line_number {
+	background-color: #222a43;
+	text-align: center;
+	padding-bottom: 0.3rem;
+	padding-top: 0.3rem;
+}
+
+.text_editor {
+	padding: 10px 0;
+}
+
+.line_content {
+	display: flex;
+	align-items: center;
+}
